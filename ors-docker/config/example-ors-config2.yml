@@ -1,0 +1,152 @@
+spring:
+ profiles:
+   active: default
+ mvc:
+   servlet:
+     path: /
+ors:
+  cors:
+    allowed_origins: "*"
+    allowed_headers: Content-Type, X-Requested-With, accept, Origin,
+      Access-Control-Request-Method, Access-Control-Request-Headers,
+      Authorization
+    preflight_max_age: 600
+  endpoints:
+    routing:
+      enabled: true
+      attribution: openrouteservice.org, OpenStreetMap contributors, tmc - BASt
+      gpx_name: ORSRouting
+      gpx_description: This is a directions instructions file as GPX, generated from openrouteservice
+      gpx_base_url: https://openrouteservice.org/
+      gpx_support_mail: support@openrouteservice.org
+      gpx_author: openrouteservice
+      gpx_content_licence: LGPL 3.0
+      maximum_avoid_polygon_area: 200000000
+      maximum_avoid_polygon_extent: 20000
+      maximum_alternative_routes: 3
+    matrix:
+      enabled: true
+      attribution: openrouteservice.org, OpenStreetMap contributors
+      maximum_routes: 100
+      maximum_routes_flexible: 25
+      maximum_visited_nodes: 100000
+      maximum_search_radius: 5000
+      u_turn_costs: -1
+    isochrone:
+      enabled: true
+      attribution: openrouteservice.org, OpenStreetMap contributors
+      maximum_locations: 2
+      maximum_intervals: 1
+      allow_compute_area: true
+      maximum_range_distance_default: 50000
+      maximum_range_distance:
+        - profiles: driving-car, driving-hgv
+          value: 100000
+      maximum_range_time_default: 18000
+      maximum_range_time:
+        - profiles: driving-car, driving-hgv
+          value: 3600
+      fastisochrones:
+        maximum_range_distance_default: 50000
+        maximum_range_distance:
+          - profiles: driving-car, driving-hgv
+            value: 500000
+        maximum_range_time_default: 18000
+        maximum_range_time:
+          - profiles: driving-car, driving-hgv
+            value: 10800
+    Snap:
+      enabled: true
+      attribution: openrouteservice.org, OpenStreetMap contributors
+  engine:
+    source_file:  /home/ors/files/example-heidelberg.osm.gz
+    graphs_root_path: /home/ors/ors-core/data/graphs
+    elevation:
+      cache_path: /home/ors/ors-core/data/elevation_cache
+    profiles:
+      active: 
+        enabled: true
+        profile: driving-car
+        elevation: true
+        encoder_options:
+          turn_costs: true
+          block_fords: false
+          use_acceleration: true
+        preparation:
+          min_network_size: 200
+          min_one_way_network_size: 200
+          methods:
+            ch:
+              enabled: true
+              threads: 1
+              weightings: fastest
+            lm:
+              enabled: false
+              threads: 1
+              weightings: fastest,shortest
+              landmarks: 16
+            core:
+              enabled: true
+              threads: 1
+              weightings: fastest,shortest
+              landmarks: 64
+              lmsets: highways;allow_all
+        execution:
+          methods:
+            ch:
+              disabling_allowed: true
+            lm:
+              disabling_allowed: true
+              active_landmarks: 6
+            core:
+              disabling_allowed: true
+              active_landmarks: 6
+        ext_storages:
+          WayCategory: null
+          HeavyVehicle: null
+          WaySurfaceType: null
+          RoadAccessRestrictions:
+            use_for_warnings: true
+      car:
+        enabled: true
+        profile: driving-car
+        elevation: true
+        encoder_options:
+          turn_costs: true
+          block_fords: false
+          use_acceleration: true
+        preparation:
+          min_network_size: 200
+          min_one_way_network_size: 200
+          methods:
+            ch:
+              enabled: true
+              threads: 1
+              weightings: fastest
+            lm:
+              enabled: false
+              threads: 1
+              weightings: fastest,shortest
+              landmarks: 16
+            core:
+              enabled: true
+              threads: 1
+              weightings: fastest,shortest
+              landmarks: 64
+              lmsets: highways;allow_all
+        execution:
+          methods:
+            ch:
+              disabling_allowed: true
+            lm:
+              disabling_allowed: true
+              active_landmarks: 6
+            core:
+              disabling_allowed: true
+              active_landmarks: 6
+        ext_storages:
+          WayCategory: null
+          HeavyVehicle: null
+          WaySurfaceType: null
+          RoadAccessRestrictions:
+            use_for_warnings: true
