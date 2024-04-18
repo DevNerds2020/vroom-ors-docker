@@ -50,7 +50,7 @@ ors:
 #    preflight_max_age: 600
 #  messages:
 #  ##### ORS endpoints settings #####
-#  endpoints:
+  endpoints:
 #    routing:
 #      enabled: true
 #      attribution: openrouteservice.org, OpenStreetMap contributors, tmc - BASt
@@ -63,14 +63,14 @@ ors:
 #      maximum_avoid_polygon_area: 200000000
 #      maximum_avoid_polygon_extent: 20000
 #      maximum_alternative_routes: 3
-#    matrix:
-#      enabled: true
-#      attribution: openrouteservice.org, OpenStreetMap contributors
-#      maximum_routes: 2500
-#      maximum_routes_flexible: 25
-#      maximum_visited_nodes: 100000
-#      maximum_search_radius: 2000
-#      u_turn_costs: -1
+    matrix:
+      enabled: true
+      attribution: openrouteservice.org, OpenStreetMap contributors
+      maximum_routes: 1000000
+      maximum_routes_flexible: 25000
+      maximum_visited_nodes: 100000
+      maximum_search_radius: 2000
+      u_turn_costs: -1
 #    isochrones:
 #      enabled: true
 #      attribution: openrouteservice.org, OpenStreetMap contributors
