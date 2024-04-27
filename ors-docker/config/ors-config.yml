@@ -69,7 +69,7 @@ ors:
       maximum_routes: 1000000000
       maximum_routes_flexible: 2500000
       maximum_visited_nodes: 10000000
-      maximum_search_radius: 200000
+      maximum_search_radius: 2000000
       u_turn_costs: -1
 #    isochrones:
 #      enabled: true
@@ -122,7 +122,7 @@ ors:
       maximum_distance_dynamic_weights: 100000
       maximum_distance_avoid_areas: 100000
       maximum_waypoints: 500
-#      maximum_snapping_radius: 400
+      maximum_snapping_radius: 400000
 #      maximum_distance_alternative_routes: 100000
 #      maximum_distance_round_trip_routes: 100000
 #      maximum_speed_lower_bound: 80
