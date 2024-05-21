@@ -147,29 +147,29 @@ ors:
       car:
         enabled: true
         profile: driving-car
-#        elevation: true
-#        encoder_options:
-#          turn_costs: true
-#          block_fords: false
-#          use_acceleration: true
-#        preparation:
-#          min_network_size: 200
-#          methods:
-#            ch:
-#              enabled: true
-#              threads: 1
-#              weightings: fastest
-#            lm:
-#              enabled: false
-#              threads: 1
-#              weightings: fastest,shortest
-#              landmarks: 16
-#            core:
-#              enabled: true
-#              threads: 1
-#              weightings: fastest,shortest
-#              landmarks: 64
-#              lmsets: highways;allow_all
+        elevation: true
+        encoder_options:
+          turn_costs: true
+          block_fords: false
+          use_acceleration: true
+        preparation:
+          min_network_size: 200
+          methods:
+            ch:
+              enabled: true
+              threads: 100
+              weightings: fastest
+            lm:
+              enabled: false
+              threads: 100
+              weightings: fastest,shortest
+              landmarks: 16
+            core:
+              enabled: true
+              threads: 100
+              weightings: fastest,shortest
+              landmarks: 64
+              lmsets: highways;allow_all
 #        execution:
 #          methods:
 #            lm:
