@@ -100,7 +100,7 @@ ors:
 #  ##### ORS engine settings #####
   engine:
     source_file: /home/ors/files/iran-latest.osm.pbf
-    init_threads: 1
+    init_threads: 100
     preparation_mode: false
     graphs_root_path: ./graphs
     graphs_data_access: RAM_STORE
